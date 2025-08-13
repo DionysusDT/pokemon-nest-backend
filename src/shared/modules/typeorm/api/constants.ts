@@ -1,0 +1,1 @@
+export const TYPEORM_API_TOKEN = 'TYPEORM_API';
