@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { startContext } from './shared/modules/instances/context.instance';
 import { LoginModule } from './login/login.module';
 import { AuthModule } from './auth/auth.modules';
+import { PokemonModule } from './pokemon/pokemon.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { AuthModule } from './auth/auth.modules';
     UserModule,
     LoginModule,
     AuthModule,
+    PokemonModule,
   ],
   controllers: [AppController],
   providers: [AppService],
