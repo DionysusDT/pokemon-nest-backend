@@ -38,9 +38,12 @@ export class AuthController {
     };
   }
 
+  @ApiBearerAuth('bearer')
   @Post('logout')
   @AllowRoles([AuthRole.ADMIN])
-  logout() {
+  async logout() {
+    const login = readItem('login') as { id: number };
+    await this.authProxy.service.logout(login.id);
     return { ok: true };
   }
 

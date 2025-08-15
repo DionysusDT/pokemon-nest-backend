@@ -94,4 +94,8 @@ export class AuthService {
     ]);
     return { login, user };
   }
+
+  async logout(loginId: number){
+    await this.loginProxy.service.revokeLogin(loginId);
+  }
 }
