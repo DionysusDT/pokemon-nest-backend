@@ -6,6 +6,7 @@ import { AllowPublic, AllowRoles } from './decorators/allow.decorator';
 import { readItem } from 'src/shared/modules/instances/context.instance';
 import { SignupCreateDto } from './dto/signup.create.dto';
 import { ApiBearerAuth } from '@nestjs/swagger';
+import { UserResponseDto } from 'src/user/dto/user.response.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -52,6 +53,15 @@ export class AuthController {
   @AllowRoles([AuthRole.ADMIN])
   profile() {
     const user = readItem('user');
-    return { success: true, data: user };
+    const userResponse: UserResponseDto = {
+      id: user.id,
+      email: user.email,
+      full_name: user.full_name,
+      role: user.role,
+      is_active: user.is_active,
+      created_at: user.created_at,
+      updated_at: user.updated_at,
+    };
+    return { success: true, data: userResponse };
   }
 }
