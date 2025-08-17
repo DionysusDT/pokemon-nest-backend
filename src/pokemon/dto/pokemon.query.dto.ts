@@ -46,8 +46,8 @@ export class PokemonQueryDto {
   @IsString()
   sort_by?: string;
 
-  @ApiPropertyOptional({ enum: ['asc', 'desc'], default: 'desc' })
+  @ApiPropertyOptional({ enum: ['asc', 'desc'], default: 'asc' })
   @IsOptional()
   @IsString()
-  sort_order?: 'asc' | 'desc' = 'desc';
+  sort_order?: 'asc' | 'desc' = 'asc';
 }

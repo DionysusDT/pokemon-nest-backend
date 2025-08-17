@@ -74,13 +74,12 @@ export class PokemonRepository extends TypeOrmRepository<Pokemon> {
       qb.andWhere('COALESCE(p.speed,0) BETWEEN :min AND :max', { min, max });
     }
 
-    const sortBy = ['name', 'created_at', 'speed', 'total'].includes(
-      q.sort_by || '',
-    )
+    const sortBy = ['name', 'created_at', 'speed', 'total', 'id'].includes(q.sort_by || '')
       ? q.sort_by!
-      : 'created_at';
+      : 'id';
+
     const sortDir =
-      (q.sort_order || 'desc').toUpperCase() === 'ASC' ? 'ASC' : 'DESC';
+      (q.sort_order || 'asc').toUpperCase() === 'ASC' ? 'ASC' : 'DESC';
 
     qb.orderBy(`p.${sortBy}`, sortDir as 'ASC' | 'DESC')
       .skip((page - 1) * limit)
