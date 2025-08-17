@@ -9,6 +9,7 @@ import { LoginModule } from './login/login.module';
 import { AuthModule } from './auth/auth.modules';
 import { PokemonModule } from './pokemon/pokemon.module';
 import { SettingModule } from './setting/setting.module';
+import { FavoriteModule } from './favorite/favorite.modules';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { SettingModule } from './setting/setting.module';
     LoginModule,
     AuthModule,
     PokemonModule,
-    SettingModule
+    SettingModule,
+    FavoriteModule
   ],
   controllers: [AppController],
   providers: [AppService],
