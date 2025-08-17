@@ -56,3 +56,57 @@ npm install
 npm run start:dev
 ```
 API will be available at: `http://localhost:${PORT}` (default: 3000).
+
+  ## 🚀 Implemented API
+
+### Auth
+- `POST /auth/signup` – Register new account
+- `POST /auth/login` – Login and receive access token
+- `POST /auth/logout` – Logout current session
+- `GET /auth/profile` – Get current user profile
+
+### Pokemon
+- `POST /pokemon/import-csv` – Import Pokemon list from CSV file
+- `GET /pokemon` – Get paginated list of Pokemon
+- `GET /pokemon/{id}` – Get Pokemon detail by ID
+
+### Settings
+- `GET /settings/pokemon` – Get user Pokemon settings
+- `POST /settings/pokemon` – Create user Pokemon settings.
+  
+  **Requirement**: User must be logged in.  
+  **Purpose**: Save filter preferences (such as Pokemon types and speed ranges). These settings will be used to render dynamic queries on the frontend.  
+  
+  Example payload:  
+  ```json
+  {
+    "types": [
+      "Normal", "Fire", "Water", "Grass", "Electric", "Ice",
+      "Fighting", "Poison", "Ground", "Flying",
+      "Psychic", "Bug", "Rock", "Ghost", "Dragon",
+      "Dark", "Steel", "Fairy"
+    ],
+    "speedRanges": [
+      { "label": "0 – 50", "value": "0-50" },
+      { "label": "51 – 100", "value": "51-100" },
+      { "label": "101 – 150", "value": "101-150" },
+      { "label": "151 – 200", "value": "151-200" },
+      { "label": "201 – 255", "value": "201-255" }
+    ]
+  }
+- `PUT /settings/pokemon` – Update user Pokemon settings
+
+### Favorites
+- `GET /favorites/{pokemonId}/is-favorite` – Check if Pokemon is in favorites
+- `POST /favorites/{pokemonId}` – Add Pokemon to favorites
+- `DELETE /favorites/{pokemonId}` – Remove Pokemon from favorites
+
+---
+
+## 📖 API Documentation
+
+This project provides interactive API documentation via **Swagger UI**.
+- After running the project, open your browser at:  
+  👉 [http://localhost:3000/docs](http://localhost:3000/docs)  
+
+
