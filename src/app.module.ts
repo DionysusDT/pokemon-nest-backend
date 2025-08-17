@@ -8,6 +8,7 @@ import { startContext } from './shared/modules/instances/context.instance';
 import { LoginModule } from './login/login.module';
 import { AuthModule } from './auth/auth.modules';
 import { PokemonModule } from './pokemon/pokemon.module';
+import { SettingModule } from './setting/setting.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { PokemonModule } from './pokemon/pokemon.module';
     LoginModule,
     AuthModule,
     PokemonModule,
+    SettingModule
   ],
   controllers: [AppController],
   providers: [AppService],
