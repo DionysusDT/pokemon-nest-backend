@@ -7,6 +7,7 @@ import {
   ParseIntPipe,
   UploadedFile,
   UseInterceptors,
+  BadRequestException,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from '@nestjs/swagger';
@@ -20,7 +21,7 @@ import type { File as MulterFile } from 'multer';
 @ApiBearerAuth('bearer')
 @Controller('pokemon')
 export class PokemonController {
-  constructor(private readonly service: PokemonService) {}
+  constructor(private readonly service: PokemonService) { }
 
   @Post('import-csv')
   @AllowRoles([AuthRole.ADMIN])
@@ -39,7 +40,7 @@ export class PokemonController {
         const ok =
           file.mimetype === 'text/csv' ||
           file.originalname.toLowerCase().endsWith('.csv');
-        cb(ok ? null : new Error('Only .csv is allowed'), ok);
+        cb(ok ? null : new BadRequestException('Only .csv is allowed'), ok);
       },
     }),
   )
