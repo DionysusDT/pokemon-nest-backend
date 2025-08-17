@@ -1,3 +1,4 @@
+# PokemonAPI
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
@@ -25,23 +26,17 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Project setup
+## Clone the repository
 
 ```bash
-$ npm install
+git clone https://github.com/DionysusDT/pokemon-nest-backend.git
+   cd pokemon-nest-backend
 ```
 
-## Compile and run the project
+## Start PostgreSQL using Docker Compose:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+# docker-compose up -d
 ```
 
 ## Run tests
